@@ -2,7 +2,7 @@ import streamlit
 
 streamlit.title('I love myself more')
 
-streamlit.BreakfastMenu 
-('omega 3 &  Blueberry oatmeal
-Kale, Spinach and rocket smoothie
-Hard-boiled free-range egg')
+streamlit.header('Breakfast Menu')
+streamlit.text('omega 3 &  Blueberry oatmeal')
+streamlit.text('Kale, Spinach and rocket smoothie')
+streamlit.text('Hard-boiled free-range egg')
