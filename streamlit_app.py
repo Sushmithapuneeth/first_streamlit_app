@@ -3,7 +3,6 @@ import pandas
 import requests
 import snowflake.connector
 from urllib.error import URLError
-from pandas.io.json import json_normalize
 
 streamlit.title('My parents new healthy diner')
 
@@ -24,6 +23,7 @@ streamlit.dataframe(fruits_to_show)
 
 #create the repetable block (called a function)
 def get_fruityvice_data(fruit_choice):
+    from pandas.io.json import json_normalize
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
     fruityvice_normalized = pandas.jason_normalize(fruityvice_response.json())
     return fruityvice_normalized
