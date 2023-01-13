@@ -25,14 +25,12 @@ streamlit.text(fruityvice_response)
 
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-  
-fruit_choice = streamlit.text_input('What fruit would you like information about?')
-
-if not fruit_choice:
-streamlit.error('select a fruit to get some information')
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    streamlit.error('select a fruit to get some information')
 else 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # output it in the screen as table
 streamlit.dataframe(fruityvice_normalized)
 except URL error as e:
