@@ -31,8 +31,7 @@ try:
   else:
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# output it in the screen as table
-streamlit.dataframe(fruityvice_normalized)
+    streamlit.dataframe(fruityvice_normalized)
 except URL error as e:
 streamlit.error()
 streamlit.write('The user entered ', fruit_choice)
