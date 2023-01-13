@@ -29,6 +29,7 @@ try:
   if not fruit_choice:
     streamlit.error('select a fruit to get some information')
   else:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
     back_from_function = get_fruityvice_data(this_fruit_choice)
     streamlit.dataframe(back_from_function)
 except URLerror as e:
@@ -36,8 +37,6 @@ except URLerror as e:
   
   streamlit.write('The user entered ', fruit_choice)
   
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-
 # take the jason file of response and normalize it 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 #output it as in the screen 
