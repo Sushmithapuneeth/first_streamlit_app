@@ -37,8 +37,6 @@ except URLerror as e:
   
   streamlit.write('The user entered ', fruit_choice)
   
-#output it as in the screen 
-streamlit.dataframe(fruityvice_normalized)
 
 #dont run anyting past here while we troubleshoot
 streamlit.stop()
