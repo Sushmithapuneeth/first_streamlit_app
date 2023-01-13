@@ -41,7 +41,6 @@ try:
   
   streamlit.write('The user entered ', fruit_choice)
   
-
 #dont run anyting past here while we troubleshoot
 streamlit.stop()
 
