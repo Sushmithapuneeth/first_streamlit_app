@@ -41,7 +41,6 @@ try:
 except URLerror as e:
   streamlit.error()
 streamlit.write('The user entered ', fruit_choice)
-streamlit.stop()
 import snowflake.connector
 my_cur.execute("SELECT * from pc_rivery_db.public.fruit_load_list")
 my_data_row = my_cur.fetchall()
