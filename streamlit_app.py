@@ -38,7 +38,7 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
  
-streamlit.heaer("The fruit load list contains:")
+streamlit.header("The fruit load list contains:")
 #snowflake related function
 def get_fruit_load_list():
     with my_cur.cursor() as my_cur:
