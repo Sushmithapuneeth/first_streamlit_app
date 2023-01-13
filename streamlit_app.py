@@ -39,6 +39,7 @@ try:
     streamlit.dataframe(back_from_function)
  
 streamlit.header("The fruit load list contains:")
+
 #snowflake related function
 def get_fruit_load_list():
     with my_cur.cursor() as my_cur:
