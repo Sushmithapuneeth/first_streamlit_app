@@ -37,8 +37,6 @@ except URLerror as e:
   
   streamlit.write('The user entered ', fruit_choice)
   
-# take the jason file of response and normalize it 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 #output it as in the screen 
 streamlit.dataframe(fruityvice_normalized)
 
