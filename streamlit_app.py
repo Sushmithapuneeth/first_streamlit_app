@@ -3,6 +3,7 @@ import pandas
 import requests
 import snowflake.connector
 from urllib.error import URLError
+from pandas.io.json import json_normalize
 
 streamlit.title('My parents new healthy diner')
 
