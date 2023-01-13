@@ -42,10 +42,11 @@ except URLerror as e:
   streamlit.error()
 streamlit.write('The user entered ', fruit_choice)
 import snowflake.connector
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchall()
-streamlit.text("The fruit load list Contains:")
-streamlit.text(my_data_row)
+streamlit.header("The fruit load list Contains:")
+streamlit.dataframe(my_data_rows)
 #Allow the end user to add fruit to the list
 def insert_snowflake_row(new_fruit):
     with my_cnx.cursor() as my_cur:
