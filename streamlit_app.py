@@ -32,31 +32,3 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
   
-
-streamlit.header("The Fruit Load List Contain:")
-#snowflake related function
-def get_fruit_load_list():
-    with my_cur.cursor() as my_cur:
-         my_cur.execute("select * from fruit_load_list")
-         return my_cur.fetchall()
-#Add a button to load the fruit 
-if streamlit.button('Get Fruit Load List'):
-   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]) 
-   my_data_rows = get_fruit_load_list()
-   streamlit.dataframe(my_data_rows)
-
-#Allow the end user to add fruit to the list
-def insert_snowflake_row(new_fruit):
-    with my_cnx.cursor() as my_cur:
-         my_cur.execute("insert into fruit_load_list values('"+ add_my_fruit +"')")
-         return "Thanks for adding" + new_fruit
-
-#Allow the end user add a fruit to the list
-add_my_fruit = streamlit.text_input('What fruit would you like to add ?')
-if streamlit.button('Add a fruit to the list'): 
-    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]) 
-    back_from_function = insert_row_snowflake(add_my_fruit) 
-    streamlit.text(back_from_function)
-    my_cnx.close() 
-    streamlit.text(back_from_function)
-
