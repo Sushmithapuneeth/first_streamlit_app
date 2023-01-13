@@ -22,10 +22,20 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 #New Section to display api responses
-streamlit.header("Fruityvice Fruit Advice!")
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
 
+streamlit.header("Fruityvice Fruit Advice!")
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    streamlit.error('select a fruit to get some information')
+  else:
+    back_from_function = get_fruityvice_data(this_fruit_choice)
+    streamlit.dataframe(back_from_function)
+except URLerror as e:
+  streamlit.error()
+  
+  streamlit.write('The user entered ', fruit_choice)
+  
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
 # take the jason file of response and normalize it 
